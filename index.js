@@ -4,7 +4,13 @@ const cors = require('cors');
 // const port = process.ENV.PORT || 5000;
 const port = process.env.PORT ||5000;
 
-app.use(cors());
+const corsOptions ={
+    origin:'http://localhost:5173', 
+    credentials:true,            
+    optionSuccessStatus:200
+}
+
+app.use(cors(corsOptions));
 
 const categories = require('./data/categories.json');
 const news = require('./data/news.json');
